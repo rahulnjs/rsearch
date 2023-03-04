@@ -1,0 +1,140 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #fafafa;
+}
+
+#app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.compact {
+    justify-content: center;
+    align-items: center;
+}
+
+.full {
+    flex-direction: column;
+}
+
+.search-header {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.full .search-header {
+    padding: 10px 0px 10px 16px;
+    box-shadow: 0px 0px 13px -2px rgb(0 0 0 / 10%);
+}
+
+.full .search-box {
+    margin: 0px;
+}
+
+.search-box {
+    width: 50%;
+    position: relative;
+    margin: 0px auto;
+}
+
+.full .search-box input {
+    box-shadow: none;
+}
+
+.search-box input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #333;
+    padding-right: 40px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    box-shadow: 2px 1px 5px 0px rgb(0 0 0 / 10%);
+    outline: none;
+}
+
+.search-ico {
+    position: absolute;
+    right: 9px;
+    top: 16px;
+}
+
+.google-ico {
+    position: absolute;
+    left: 9px;
+    top: 18px;
+}
+
+.google-ico img {
+    width: 15px;
+}
+
+.search-ico img {
+    width: 18px;
+}
+
+.search-result {
+    margin-top: 20px;
+    width: 60%;
+    padding-left: 16px;
+}
+
+.result {
+    margin: 20px 0px;
+}
+
+.result .title {
+    word-break: break-word;
+}
+
+.result .link {
+    font-size: .9rem;
+    margin-bottom: 5px;
+
+}
+
+.result .link a {
+    text-decoration: none;
+}
+
+.result .snippet {
+    font-size: .8rem;
+    margin-bottom: 5px;
+}
+
+.search-info {
+    font-size: .7rem;
+    color: gray;
+    margin-top: 15px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .search-result {
+        width: 100%;
+        padding: 0px 16px;
+        box-sizing: border-box;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-header {
+        padding-right: 16px !important;
+    }
+
+    .compact .search-header {
+        padding-left: 16px !important;
+    }
+}
