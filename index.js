@@ -16,10 +16,11 @@ const SearchApp = () => {
     const [searchInfo, setSearchInfo] = React.useState({});
     const [isLoading, setIsLoading] = React.useState(false);
 
-    const search = async (v) => {
+    const search = async (v, e) => {
         if (!v) {
             return;
         }
+        e.target.blur();
         setIsLoading(true);
         const d = await getSearchResults(v);
         setIsLoading(false);
@@ -40,7 +41,7 @@ const SearchApp = () => {
                 <div className="google-ico">
                     <img src="./assets/google.png" />
                 </div>
-                <input id="search-ip" onKeyUp={e => e.key === 'Enter' && search(e.target.value)} />
+                <input id="search-ip" onKeyUp={e => e.key === 'Enter' && search(e.target.value, e)} />
                 <div className="search-ico">
                     <img src={isLoading ? "./assets/loader.gif" : "./assets/search.ico"} />
                 </div>
