@@ -1,7 +1,12 @@
-const SearchResult = ({ result }) => {
+const SearchResult = ({ result, first }) => {
     return <div className="result">
-        <div className="link"><a href={result.link}><div className="title">{result.title}</div></a></div>
-        <div className="snippet">{result.snippet}</div>
+        <div className="link">
+            <a href={result.link}>
+                <div className="title">{result.h3}</div>
+                <div className="breadcrumb">{result.breadcrumb}</div>
+            </a>
+        </div>
+        {!first && <div className="snippet">{result.desc}</div>}
     </div>
 }
 
@@ -9,25 +14,23 @@ const SearchApp = () => {
     const [results, setResults] = React.useState([]);
     const [start, setStart] = React.useState(0);
     const [searchInfo, setSearchInfo] = React.useState({});
+    const [isLoading, setIsLoading] = React.useState(false);
 
     const search = async (v) => {
         if (!v) {
             return;
         }
-        let all = [];
-        const _results = await Promise.all([0, 1, 2].map(n => getSearchResults(v, n === 0 ? 0 : ((n * 10) + 1))));
-        for (let r of _results) {
-            if (r.items) {
-                all = [...all, ...r.items];
-            }
-        }
-        setSearchInfo(_results[0].searchInformation);
-        setResults(all.reverse());
+        setIsLoading(true);
+        const d = await getSearchResults(v);
+        setIsLoading(false);
+        setSearchInfo(d);
+        setResults(d.items);
     }
 
 
-    async function getSearchResults(v, _start = 0) {
-        const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=AIzaSyCPM1GuOrLSRwoowPLBe3ES68RFiL0NTWo&cx=017576662512468239146:omuauf_lfve&q=${v}&start=${_start}&gl=in`);
+    async function getSearchResults(v) {
+        const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
+        const res = await fetch(`${url}/api/search?q=${v}`);
         return await res.json();
     }
 
@@ -39,18 +42,23 @@ const SearchApp = () => {
                 </div>
                 <input id="search-ip" onKeyUp={e => e.key === 'Enter' && search(e.target.value)} />
                 <div className="search-ico">
-                    <img src="./assets/search.ico" />
+                    <img src={isLoading ? "./assets/loader.gif" : "./assets/search.ico"} />
                 </div>
                 {results.length > 0 &&
                     <div className="search-info">
-                        {searchInfo.formattedTotalResults} results in {searchInfo.formattedSearchTime}s
+                        {searchInfo.rc} results in {searchInfo.time}s
                     </div>
                 }
             </div>
         </div>
         {results.length > 0 &&
-            <div className="search-result">
-                {results.map(r => <SearchResult result={r} />)}
+            <div>
+                <div class="search-result banner-highlight">
+                    {results[0].desc}
+                </div>
+                <div className="search-result">
+                    {results.map((r, i) => <SearchResult result={r} first={i === 0} />)}
+                </div>
             </div>
         }
     </div>

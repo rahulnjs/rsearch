@@ -118,6 +118,18 @@ body {
     margin-top: 15px;
 }
 
+.breadcrumb {
+    font-size: .8rem;
+    color: gray;
+    margin-top: 7px;
+}
+
+.banner-highlight {
+    line-height: 20px;
+    color: #625f5f;
+    font-weight: 500;
+}
+
 
 @media only screen and (max-width: 600px) {
     .search-result {
