@@ -7,7 +7,7 @@ const SearchResult = ({ result, first }) => {
                 {result.breadcrumb && <div className="breadcrumb">{result.breadcrumb}</div>}
             </a>
         </div>
-        {!first && <div className="snippet">{result.desc}</div>}
+        {(!first || !window.real) && <div className="snippet">{result.desc}</div>}
     </div>
 }
 
@@ -63,9 +63,10 @@ const SearchApp = () => {
         </div>
         {results.length > 0 &&
             <div>
-                <div className="search-result banner-highlight">
+                {window.real && <div className="search-result banner-highlight">
                     {results[0].desc}
                 </div>
+                }
                 <div className="search-result">
                     {results.map((r, i) => <SearchResult result={r} first={i === 0} key={i} />)}
                 </div>
