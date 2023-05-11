@@ -1,9 +1,10 @@
 const SearchResult = ({ result, first }) => {
-    return <div className="result">
+    const id = React.useId();
+    return <div className="result" key={id}>
         <div className="link">
             <a href={result.link}>
                 <div className="title">{result.h3}</div>
-                <div className="breadcrumb">{result.breadcrumb}</div>
+                {result.breadcrumb && <div className="breadcrumb">{result.breadcrumb}</div>}
             </a>
         </div>
         {!first && <div className="snippet">{result.desc}</div>}
@@ -21,11 +22,19 @@ const SearchApp = () => {
             return;
         }
         e.target.blur();
-        setIsLoading(true);
-        const d = await getSearchResults(v);
-        setIsLoading(false);
-        setSearchInfo(d);
-        setResults(d.items);
+        if (window.real) {
+            setIsLoading(true);
+            const d = await getSearchResults(v);
+            setIsLoading(false);
+            setSearchInfo(d);
+            setResults(d.items);
+        } else {
+            setResults(window.data);
+            setSearchInfo({
+                rc: window.data.length,
+                time: 0
+            });
+        }
     }
 
 
@@ -54,11 +63,11 @@ const SearchApp = () => {
         </div>
         {results.length > 0 &&
             <div>
-                <div class="search-result banner-highlight">
+                <div className="search-result banner-highlight">
                     {results[0].desc}
                 </div>
                 <div className="search-result">
-                    {results.map((r, i) => <SearchResult result={r} first={i === 0} />)}
+                    {results.map((r, i) => <SearchResult result={r} first={i === 0} key={i} />)}
                 </div>
             </div>
         }
@@ -66,4 +75,5 @@ const SearchApp = () => {
 }
 
 
-ReactDOM.render(<SearchApp />, document.querySelector('#root'));
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<SearchApp />);
