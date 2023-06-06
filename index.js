@@ -1,11 +1,34 @@
-const SearchResult = ({ result, first }) => {
+const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
+
+const SearchResult = ({ result, first, index, q }) => {
     const id = React.useId();
+
+    const navigateTo = async (e, link) => {
+        e.preventDefault();
+        const clickData = {
+            link, time: Date.now(),
+            at: index + 1,
+            q,
+            set: window.qset,
+            uuid: window.localStorage['uuid']
+        };
+        const res = await fetch(`${url}/api/log`, {
+            method: 'POST',
+            body: JSON.stringify(clickData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(res);
+        window.location.assign(link);
+    }
+
     return <div className="result" key={id}>
         <div className="link">
-            <a href={result.link}>
+            <div href={result.link} onClick={e => navigateTo(e, result.link)}>
                 <div className="title">{result.h3}</div>
                 {result.breadcrumb && <div className="breadcrumb">{result.breadcrumb}</div>}
-            </a>
+            </div>
         </div>
         {(!first || !window.real) && <div className="snippet">{result.desc}</div>}
     </div>
@@ -13,9 +36,30 @@ const SearchResult = ({ result, first }) => {
 
 const SearchApp = () => {
     const [results, setResults] = React.useState([]);
-    const [start, setStart] = React.useState(0);
     const [searchInfo, setSearchInfo] = React.useState({});
     const [isLoading, setIsLoading] = React.useState(false);
+    const [searchTerm, setSearchTerm] = React.useState('')
+
+
+
+    React.useEffect(() => {
+        const url = new URL(window.location);
+        const set = url.searchParams.get('set');
+        if (set) {
+            preFillResult(set);
+        }
+        window.qset = set;
+    }, []);
+
+    const preFillResult = (set) => {
+        const data = window[`data_set_${set}`];
+        setResults(data.result);
+        setSearchInfo({
+            rc: data.length,
+            time: 0
+        });
+        setSearchTerm(data.query);
+    }
 
     const search = async (v, e) => {
         if (!v) {
@@ -29,17 +73,14 @@ const SearchApp = () => {
             setSearchInfo(d);
             setResults(d.items);
         } else {
-            setResults(window.data);
-            setSearchInfo({
-                rc: window.data.length,
-                time: 0
-            });
+            preFillResult(1);
         }
     }
 
 
+
+
     async function getSearchResults(v) {
-        const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
         const res = await fetch(`${url}/api/search?q=${v}`);
         return await res.json();
     }
@@ -50,13 +91,19 @@ const SearchApp = () => {
                 <div className="google-ico">
                     <img src="./assets/google.png" />
                 </div>
-                <input id="search-ip" onKeyUp={e => e.key === 'Enter' && search(e.target.value, e)} />
+                <input id="search-ip" onKeyUp={e => {
+                    if (e.key === 'Enter') {
+                        search(e.target.value);
+                    }
+                }} onChange={e =>
+                    setSearchTerm(e.target.value)} value={searchTerm} />
                 <div className="search-ico">
                     <img src={isLoading ? "./assets/loader.gif" : "./assets/search.ico"} />
                 </div>
                 {results.length > 0 &&
                     <div className="search-info">
-                        {searchInfo.rc} results in {searchInfo.time}s
+                        {searchInfo.rc} results
+                        {/* in {searchInfo.time}s */}
                     </div>
                 }
             </div>
@@ -68,7 +115,7 @@ const SearchApp = () => {
                 </div>
                 }
                 <div className="search-result">
-                    {results.map((r, i) => <SearchResult result={r} first={i === 0} key={i} />)}
+                    {results.map((r, i) => <SearchResult result={r} first={i === 0} key={i} index={i} q={searchTerm} />)}
                 </div>
             </div>
         }

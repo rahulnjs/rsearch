@@ -100,10 +100,12 @@ body {
 .result .link {
     font-size: .9rem;
     margin-bottom: 5px;
+    cursor: pointer;
+    color: blue;
 
 }
 
-.result .link a {
+.result .link {
     text-decoration: none;
 }
 
