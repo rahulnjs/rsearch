@@ -55,7 +55,7 @@ const SearchApp = () => {
         const data = window[`data_set_${set}`];
         setResults(data.result);
         setSearchInfo({
-            rc: data.length,
+            rc: data.result.length,
             time: 0
         });
         setSearchTerm(data.query);
