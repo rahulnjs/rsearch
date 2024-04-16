@@ -1,5 +1,6 @@
 const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
 window.real = 'yes'
+const isNormal = location.search === '?normal'
 const SearchResult = ({ result, first, index, q }) => {
     const id = React.useId();
 
@@ -81,7 +82,7 @@ const SearchApp = () => {
 
 
     async function getSearchResults(v) {
-        const res = await fetch(`${url}/api/search?q=${v}`);
+        const res = await fetch(`${url}/api/search?q=${v}${isNormal ? '&original=true' : ''}`);
         return await res.json();
     }
 
