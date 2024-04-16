@@ -1,6 +1,7 @@
 const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
 window.real = 'yes'
-const isNormal = location.search === '?normal'
+const isNormal = location.search.includes('normal')
+
 const SearchResult = ({ result, first, index, q }) => {
     const id = React.useId();
 
@@ -53,6 +54,17 @@ const SearchApp = () => {
         window.qset = set;
     }, []);
 
+
+    React.useEffect(() => {
+        const url = new URL(window.location);
+        const v = url.searchParams.get('q');
+        if (v) {
+            setSearchTerm(v)
+            search(v);
+        }
+    }, []);
+
+
     const preFillResult = (set) => {
         const data = window[`data_set_${set}`];
         setResults(data.result);
@@ -67,7 +79,9 @@ const SearchApp = () => {
         if (!v) {
             return;
         }
-        e.target.blur();
+        if (e) {
+            e.target.blur();
+        }
         if (window.real) {
             setIsLoading(true);
             const d = await getSearchResults(v);
@@ -83,6 +97,7 @@ const SearchApp = () => {
 
 
     async function getSearchResults(v) {
+        window.history.pushState(null, '', `?q=${v}${isNormal ? '&normal' : ''}`)
         const res = await fetch(`${url}/api/search?q=${v}${isNormal ? '&original=true' : ''}`);
         return await res.json();
     }
