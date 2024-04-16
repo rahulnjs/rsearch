@@ -45,7 +45,8 @@
             time: new Date(d.time).toLocaleTimeString(),
             date: new Date(d.time).toDateString(),
             id: d.uuid.split("-").reverse()[0],
-            order: d.order ? "Original" : "Reversed",
+            order: d.original ? "Original" : "Reversed",
+            set: d.set ? d.set : "-",
           };
         });
         console.log(transformed[0]);
