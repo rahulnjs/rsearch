@@ -11,7 +11,8 @@ const SearchResult = ({ result, first, index, q }) => {
             at: index + 1,
             q,
             set: window.qset,
-            uuid: window.localStorage['uuid']
+            uuid: window.localStorage['uuid'],
+            original: isNormal
         };
         const res = await fetch(`${url}/api/log`, {
             method: 'POST',
