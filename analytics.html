@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analytics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    />
     <style>
-        * {
-            font-family: 'Sono', sans-serif;
-        }
+      * {
+        font-family: "Sono", sans-serif;
+      }
 
-        .gridjs-td {
-            word-wrap: break-word;
-        }
-
+      .gridjs-td {
+        word-wrap: break-word;
+      }
     </style>
 
-    <link rel='icon' type='image/png' href='./assets/google.png'>
-</head>
-<body>
+    <link rel="icon" type="image/png" href="./assets/google.png" />
+  </head>
+  <body>
     <h3>Analytics</h3>
     <div id="table"></div>
     <script>
-        (async function() {
-            const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
-            const response = await fetch(`${url}/api/log`);
-            const data = await response.json();
-            const transformed = data.map(d => {
-                return {
-                    ...d,
-                    time: new Date(d.time).toLocaleTimeString(),
-                    date: new Date(d.time).toDateString(),
-                    id: d.uuid.split('-').reverse()[0]
-                }
-            });
-            console.log(transformed[0]);
-            /*console.log(transformed[0])
+      (async function () {
+        const url =
+          window.location.protocol === "http:"
+            ? `http://localhost:9311`
+            : "https://search.rahulnjs.com";
+        const response = await fetch(`${url}/api/log`);
+        const data = await response.json();
+        const transformed = data.map((d) => {
+          return {
+            ...d,
+            time: new Date(d.time).toLocaleTimeString(),
+            date: new Date(d.time).toDateString(),
+            id: d.uuid.split("-").reverse()[0],
+            order: d.order ? "Original" : "Reversed",
+          };
+        });
+        console.log(transformed[0]);
+        /*console.log(transformed[0])
             const asArray = transformed.map(d => Object.values(d));
             console.log(asArray);
             new gridjs.Grid({
@@ -48,48 +57,47 @@
                 data: asArray
             }).render(document.getElementById('table'));*/
 
-            new gridjs.Grid({
-                columns: [  
-                    {
-                        name: 'Date',
-                        id: 'date',
-                    },
-                    {
-                        name: 'Time',
-                        id: 'time',
-                    },
-                    {
-                        name: 'Id',
-                        id: 'id'
-                    },
-                    {
-                        name: 'Link',
-                        id: 'link',
-                        width: "300px"
-                    },
-                    {
-                        name: 'Set',
-                        id: 'set'
-                    },
-                    {
-                        name: 'Postion',
-                        id: 'at'
-                    },
-                    {
-                        name: 'Query',
-                        id: 'q'
-                    }
-                ],
-                data: transformed,
-                fixedHeader: true,
-                autoWidth: true
-            }).render(document.getElementById('table'));
-        })();
-
+        new gridjs.Grid({
+          columns: [
+            {
+              name: "Date",
+              id: "date",
+            },
+            {
+              name: "Time",
+              id: "time",
+            },
+            {
+              name: "Id",
+              id: "id",
+            },
+            {
+              name: "Link",
+              id: "link",
+              width: "300px",
+            },
+            {
+              name: "Set",
+              id: "set",
+            },
+            {
+              name: "Postion",
+              id: "at",
+            },
+            {
+              name: "Query",
+              id: "q",
+            },
+            {
+              name: "Order",
+              id: "order",
+            },
+          ],
+          data: transformed,
+          fixedHeader: true,
+          autoWidth: true,
+        }).render(document.getElementById("table"));
+      })();
     </script>
-</body>
+  </body>
 </html>
-
-
-
-
