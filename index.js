@@ -1,5 +1,5 @@
 const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'https://search.rahulnjs.com';
-
+window.real = 'yes'
 const SearchResult = ({ result, first, index, q }) => {
     const id = React.useId();
 
@@ -93,7 +93,7 @@ const SearchApp = () => {
                 </div>
                 <input id="search-ip" onKeyUp={e => {
                     if (e.key === 'Enter') {
-                        search(e.target.value);
+                        search(e.target.value, e);
                     }
                 }} onChange={e =>
                     setSearchTerm(e.target.value)} value={searchTerm} />
