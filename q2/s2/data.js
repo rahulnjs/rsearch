@@ -1,5 +1,5 @@
 
-window.data_set_2 = {
+window.data = {
     query: 'atomic energy ',
     config: {
         query: 2,
