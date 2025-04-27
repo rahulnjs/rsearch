@@ -11,11 +11,11 @@ const SearchResult = ({ result, first, index, q }) => {
             link, time: Date.now(),
             at: index + 1,
             q,
-            set: window.qset,
+            query: window.data.config.query,
+            set: window.data.config.set,
             uuid: window.localStorage['uuid'],
-            original: isNormal
         };
-        const res = await fetch(`${url}/api/log`, {
+        await fetch(`${url}/api/log?db=2`, {
             method: 'POST',
             body: JSON.stringify(clickData),
             headers: {
@@ -65,7 +65,7 @@ const SearchApp = () => {
 
 
     const preFillResult = (set) => {
-        const data = window[`data_set_${set}`];
+        const data = window.data;
         setResults(data.result);
         setSearchInfo({
             rc: data.result.length,
