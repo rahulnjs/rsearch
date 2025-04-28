@@ -1,6 +1,6 @@
 window.data = {
     config: {
-        query: 1,
+        query: 2,
         set: 1,
     },
     query: "aluminium and Alzheimer's",

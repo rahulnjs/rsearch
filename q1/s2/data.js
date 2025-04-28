@@ -2,7 +2,7 @@
 window.data = {
     query: 'atomic energy ',
     config: {
-        query: 2,
+        query: 1,
         set: 2,
     },
     result: [

@@ -1,6 +1,6 @@
 window.data = {
     config: {
-        query: 2,
+        query: 1,
         set: 1,
     },
     query: 'nuclear energy',
