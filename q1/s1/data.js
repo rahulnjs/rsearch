@@ -12,7 +12,7 @@ window.data = {
         },
         {
             link: "/ q1p2",
-            h3: "https://drive.google.com/file/d/1Mf4lKFYFFzNMvcsZNJRd3yZlphEeYR83/view?usp=sharing",
+            h3: "Is Nuclear Power Bad for the Environment?",
             desc: "The production and use of nuclear power produces waste at every step of the process.Waste produced in nuclear power plants is radioactive and remains so for many thousands of years.There is no safe way to dispose of this radioactive waste, and it has piled up for decades at nuclear facilities.Spent nuclear fuel(i.e., old fuel removed from reactors) can be dangerous for thousands - to - millions of years.",
         },
         {
@@ -79,12 +79,12 @@ window.data = {
             desc: "Nuclear power is a low-carbon source of energy, because unlike coal, oil or gas power plants, nuclear power plants practically do not produce CO2 during their operation. Nuclear reactors generate close to one-third of the world's carbon free electricity and are crucial in meeting climate change goals.",
         },
         {
-            link: "/q1n2",
+            link: "/q1n3",
             h3: "Clean Air Energy – The Benefits of Nuclear Energy",
             desc: "The only affordable and efficient energy source which is available 24/7. It is the largest source of carbon-free electricity in the United States and protects our air quality by generating electricity without other harmful pollutants (NEI).",
         },
         {
-            link: "/q1n3",
+            link: "/q1n4",
             h3: "3 Reasons Why Nuclear is Clean and Sustainable",
             desc: "Nuclear is a zero-emission clean energy source. It generates power through fission, which is the process of splitting uranium atoms to produce energy. The heat released by fission is used to create steam that spins a turbine to generate electricity without the harmful byproducts emitted by fossil fuels.",
         },
