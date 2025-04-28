@@ -1,62 +1,59 @@
-
 window.data = {
-    query: 'atomic energy ',
     config: {
-        query: 2,
+        query: 1,
         set: 2,
     },
+    query: "aluminium and Alzheimer's",
     result: [
         {
-            link: "https://drive.google.com/file/d/1NR6MhiWOAprXytoCVgfJgJ-S9JGzHFp3/view?usp=sharing",
-            h3: "Is Nuclear Energy Good or Bad for the Environment?",
-            desc: "Nuclear energy generates large amounts of electricity without releasing carbon emissions.It can be beneficial for the environment because it can replace highly carbon emitting fuels with greater than 90% reliability and availability.In addition to releasing no major greenhouse gasses during operation, nuclear plants don't release any air pollution in the form of particulate matter, aerosols, and toxic chemicals.",
+            link: "https://drive.google.com/file/d/1TJNfdh2uqSU-WRm0ACPVnvCSgclpSAiI/view?usp=sharing",
+            h3: "Aluminium & Alzheimer's",
+            desc: "For a long time it has been suggested that aluminium is a major cause of Alzheimer's Disease in humans - Dr Karl thinks the thinking needs a shake up!! Both Aluminium and Alzheimer's Disease begin with the letters 'All'.That's about the only link between them",
         },
         {
-            link: "https://drive.google.com/file/d/1wMnVWfWGh3SOxHlp4HOlfRdTupQ3fXxJ/view?usp=sharing",
-            h3: "What is Nuclear Energy? The Science of Nuclear Power",
-            desc: "Nuclear power is a low- carbon source of energy, because unlike coal, oil or gas power plants, nuclear power plants practically do not produce CO2 during their operation.Nuclear reactors generate close to one - third of the world's carbon free electricity and are crucial in meeting climate change goals.",
+            link: "https://drive.google.com/file/d/1KEzIYVLbI_v6ysLcaXq7pqjFjvymJibd/view?usp=sharing",
+            h3: "Is There a Link Between Aluminum and Alzheimer's?",
+            desc: "There is no consistent or compelling evidence to associate aluminum with Alzheimer's disease. Although a few studies have found associations between aluminum levels and Alzheimer's risk, many others found no such associations.",
         },
         {
-            link: "https://drive.google.com/file/d/1Cd3W8MCDj0Gx9x2Cugd7iVTVDEEq5Hto/view?usp=sharing",
-            h3: "10 Cons of Nuclear Energy",
-            desc: "With the growing energy needs of artificial intelligence, major tech companies like Microsoft, Google, and Amazon are looking to nuclear energy – including everything from re - opening Three 3 - mile island to building smaller nuclear plants around the country - to provide low - carbon energy.But nuclear fission power is not a climate solution.It may produce lower - carbon energy, but this energy still comes with a great deal of risk.",
+            link: "https://drive.google.com/file/d/1M7l0SXuI36LvFFbobYpItMFZT5wub0zu/view?usp=sharing",
+            h3: "Understanding Aspects of Aluminum Exposure in Alzheimer's Disease Development",
+            desc: "Aluminum has been associated with neurodegenerative diseases such as Alzheimer's disease (AD), amyotrophic lateral sclerosis, and dialysis encephalopathy. Many continue to regard aluminum as controversial although increasing evidence supports the implications of aluminum in the pathogenesis of AD.",
         },
         {
-            link: "https://drive.google.com/file/d/1Mf4lKFYFFzNMvcsZNJRd3yZlphEeYR83/view?usp=sharing",
-            h3: "Is Nuclear Power Bad for the Environment ?",
-            desc: "The production and use of nuclear power produces waste at every step of the process.Waste produced in nuclear power plants is radioactive and remains so for many thousands of years.There is no safe way to dispose of this radioactive waste, and it has piled up for decades at nuclear facilities.Spent nuclear fuel(i.e., old fuel removed from reactors) can be dangerous for thousands - to - millions of years.",
+            link: "https://drive.google.com/file/d/1bgWABtC-ltv8jvDFNk-S_tw9kqVmiyDX/view?usp=sharing",
+            h3: "Aluminium in the Human Brain: Routes of Penetration, Toxicity, and Resulting Complications",
+            desc: "Al can display toxic properties, some of which can be associated with the pathogenesis of Parkinson's disease(PD), Alzheimer's disease(AD), autism spectrum disorder(ASD), alcohol use disorder(AUD), multiple sclerosis(MS), and dialysis encephalopathy(DE).Therefore, according to the literature sources, Al concentration could be used as a marker of certain diseases(AD, PD),",
         },
         {
-            link: "https://drive.google.com/file/d/1A4rcgbE4IypkDFAjW1oYLCaLX80Q5su1/view?usp=sharing",
-            h3: "6 reasons why nuclear energy is not the way to a green and peaceful world",
-            desc: "The multiple stages of the nuclear fuel cycle produce large volumes of radioactive waste.No government has yet resolved how to safely manage this waste.Some of this nuclear waste is highly radioactive and will remain so for several thousand years.Nuclear waste is a real scourge for our environment and for future generations",
+            link: "https://drive.google.com/file/d/1XHrTUtqzLxpI_ER1Hwc_Ytc1dJ-lMBHz/view?usp=sharing",
+            h3: "Aluminum and Alzheimer's Disease: After a Century of Controversy, Is there a Plausible Link?",
+            desc: "The hypothesis that Al signiﬁcantly contributes to AD is built upon very solidexperimental evidence and should not be dismissed.Immediate steps should be taken to lessen human exposure to Al, whichmay be the single most aggravating and avoidable factor related to AD",
         },
         {
-            link: "https://drive.google.com/file/d/1N29ck352_96j4inU6DqKnAbwOzmJdf9L/view?usp=sharing",
-            h3: "7 reasons why nuclear energy is not the answer to solve climate change",
-            desc: "According to the World Health Organization, about 7.1 million people die from air pollution each year, with more than 90 percent of these deaths from energy - related combustion.So switching out our energy system to nuclear would result in about 93 million people dying, as we wait for all the new nuclear plants to be built in the all - nuclear scenario.",
-
-
+            link: "https://drive.google.com/file/d/1RyA0ACwkeyTzrlS_Qsq3VgiqHkiT1ASO/view?usp=sharing",
+            h3: "Alzheimer's disease and its association with dietary aluminum: a review",
+            desc: "Aluminum is one of the most abundant chemical elements in nature, being a metal with proinflammatory, pathological, and genotoxic characteristics which is especially harmful to the homeostatic performance of brain cells, particularly as concerns normal genetic and cytoplasmic functioning.The consumption of food contaminated with aluminum can gradually lead to memory loss.",
         },
         {
-            link: "https://drive.google.com/file/d/157WrFTksNICgbv9jQrWG8t2ki2DUXw-r/view?usp=sharing",
-            h3: "Nuclear power is dirty, dangerous and expensive.Say no to new nukes.",
-            desc: "People are concerned about many issues surrounding the industry: From the risk of accidents and impacts that radiation has on human health, through contamination of environment and radioactive waste, to violation of human rights and links of nuclear energy to nuclear weapons.",
+            link: "https://drive.google.com/file/d/1-hOPMCIHaSHdOJ57lFnBdf4qSDV1HWEd/view?usp=sharing",
+            h3: "Aluminium DOES cause Alzheimer's: Expert says new findings confirm the metal plays a role in the devastating brain disease",
+            desc: "Chris Exley is a professor in bioinorganic chemistry based at Keele University A link between aluminium and Alzheimer's has existed for many years, but a lack of evidence has caused the scientific community to remain unsure.However, his new research confirms the metal plays a role in cognitive decline",
         },
         {
-            link: "https://drive.google.com/file/d/1RtFqAO4s2avkecwnTPHECCl-rNA-B74I/view?usp=sharing",
-            h3: "Nuclear's Fatal Flaws: Summary",
-            desc: "Nuclear power is not a clean energy source.In fact, it produces both low and high - level radioactive waste that remains dangerous for several hundred thousand years.Generated throughout all parts of the fuel cycle, this waste poses a serious danger to human health.",
+            link: "https://drive.google.com/file/d/1-Nj0jGlxfBvRxAAafwm4AbitxwMS5N0c/view?usp=sharing",
+            h3: "Chronic Aluminum Intake Causes Alzheimer's Disease: Applying Sir Austin Bradford Hill's Causality Criteria",
+            desc: "The present causality analysis evaluates the extent to which the routine, life- long intake, and metabolism of aluminum compounds can account for Alzheimer's disease (AD), using Austin Bradford Hill's nine epidemiological and experimental causality criteria, including strength of the relationship, consistency, specificity, temporality, dose - dependent response, biological rationale, coherence with existing knowledge, experimental evidence, and analogy.The causality analysis demonstrates that chronic aluminum intake causes AD.",
         },
         {
-            link: "https://drive.google.com/file/d/1p5isip8j67ln27bcCKdy9sLyzhSbIzXh/view?usp=sharing",
-            h3: "Clean Air Energy – The Benefits of Nuclear Energy",
-            desc: "The only affordable and efficient energy source which is available 24 / 7 It is the largest source of carbon - free electricity in the United States and protects our air quality by generating electricity without other harmful pollutants(NEI).",
+            link: "https://drive.google.com/file/d/1xaFaQubVLrdhQ7v8qguVbsbDfG0Rgdv-/view?usp=sharing",
+            h3: "Aluminium and Alzheimer's: An unproven link",
+            desc: "But what about the brain ? Our brains are protected from harmful substances by something called the blood - brain barrier.This is made up of very tightly packed cells, which only let certain things like oxygen and nutrients through it to reach our brain cells.Therefore, in a healthy individual, aluminium isn't thought to build - up in the brain, and is only present at extremely low levels.",
         },
         {
-            link: "https://drive.google.com/file/d/1e6X4NYq5hSQ__vCXC8fuM2hP2YOQqcfb/view?usp=sharing",
-            h3: "3 Reasons Why Nuclear is Clean and Sustainable",
-            desc: "Nuclear is a zero - emission clean energy source.It generates power through fission, which is the process of splitting uranium atoms to produce energy.The heat released by fission is used to create steam that spins a turbine to generate electricity without the harmful byproducts emitted by fossil fuels.",
+            link: "https://drive.google.com/file/d/1uqusQtYwvHkovwGygUjvRPESa2_vhlWi/view?usp=sharing",
+            h3: "Does Aluminum Cause Alzheimer's ?",
+            desc: "Because of the environmental component, it's understandable that people might think exposure to potentially toxic materials could lead to Alzheimer's.However, research has not conclusively shown a link between aluminum exposure(such as wearing deodorant and antiperspirants, cooking with aluminum bakeware, or using aluminum foil) and Alzheimer's.",
         }
     ]
 };

@@ -45,12 +45,12 @@ const SearchApp = () => {
 
 
     React.useEffect(() => {
-        const url = new URL(window.location);
-        const set = url.searchParams.get('set');
-        if (set) {
-            preFillResult(set);
-        }
-        window.qset = set;
+        // const url = new URL(window.location);
+        // const set = url.searchParams.get('set');
+        // if (set) {
+        preFillResult();
+        // }
+        // window.qset = set;
     }, []);
 
 
