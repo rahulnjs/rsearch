@@ -2,6 +2,27 @@ const url = window.location.protocol === 'http:' ? `http://localhost:9311` : 'ht
 //window.real = 'yes'
 const isNormal = location.search.includes('normal')
 
+
+var modal = document.getElementById("myModal");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("close");
+
+
+
+// When the user clicks the button, open the modal 
+function openModal() {
+    modal.style.display = "block";
+}
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+
+
 const SearchResult = ({ result, first, index, q }) => {
     const id = React.useId();
 
@@ -22,7 +43,11 @@ const SearchResult = ({ result, first, index, q }) => {
                 'Content-Type': 'application/json'
             }
         });
-        window.location.assign(link);
+        var IMG = document.getElementById("wb-img");
+        const img = window.data.result2[index].link;
+        IMG.src = `/assets/imgs${img}.png`;
+        openModal();
+        // window.location.assign(link);
     }
 
     return <div className="result" key={id}>
@@ -52,6 +77,7 @@ const SearchApp = () => {
         // }
         // window.qset = set;
     }, []);
+
 
 
     React.useEffect(() => {
