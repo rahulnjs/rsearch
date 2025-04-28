@@ -179,14 +179,19 @@ body {
             width: 90%;
             overflow: auto;
             height: 90vh;
+            position: relative;
 }
 
 /* The Close Button */
 #close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+        color: #fff;
+            float: right;
+            font-size: 34px;
+            font-weight: bold;
+            position: fixed;
+            right: 38px;
+            padding: 10px 20px;
+            background-color: red;
 }
 
 #close:hover,
